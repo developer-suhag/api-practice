@@ -1,12 +1,28 @@
+document.getElementById('search-error').style.display = 'none'
+
 document.getElementById('search-btn').addEventListener('click', () => {
   const searchField = document.getElementById('search-field')
   const searchText = searchField.value;
-  if (searchText == '') {
 
-  } else {
+  // clear 
+  const teamSection = document.getElementById('team-section')
+  const displayTeam = document.getElementById('display-team');
+  // console.log(searchText);
+  const displayDetails = document.getElementById('show-deatils');
+  if (searchText != '') {
+    document.getElementById('search-error').style.display = 'none'
+    console.log(searchText);
     searchField.value = '';
     getTeam(searchText)
+    // clear display details
+    displayDetails.textContent = ''
+  } else if (searchText == '') {
+    // clear 
+    displayTeam.innerHTML = "";
+    displayDetails.textContent = ''
+    document.getElementById('search-error').style.display = 'block'
   }
+
 });
 
 const getTeam = async team => {
@@ -17,7 +33,6 @@ const getTeam = async team => {
 };
 
 const showTeams = teams => {
-  // console.log(teams);
   const displayTeam = document.getElementById('display-team');
   displayTeam.textContent = '';
   teams.forEach(team => {
@@ -47,7 +62,6 @@ const showDetails = async teamId => {
 };
 
 const displayTeamDeatils = team => {
-  console.log(team);
   const displayDetails = document.getElementById('show-deatils');
   displayDetails.textContent = '';
   const teamCard = document.createElement('div')
@@ -64,4 +78,4 @@ const displayTeamDeatils = team => {
   </div>
   `;
   displayDetails.appendChild(teamCard)
-}
+};

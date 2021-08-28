@@ -23,17 +23,20 @@
           id="search-field"
           type="search"
           class="form-control"
-          placeholder="Search your league"
+          placeholder="Search your Team"
         />
         <button class="btn btn-outline-danger" type="button" id="search-btn">
           Search
         </button>
       </div>
+      <p id="search-error" class="text-center fs-1 my-5 text-warning">
+        ⚠️ Please type something to search
+      </p>
     </section>
     <!-- show team details  -->
     <section id="show-deatils" class="container"></section>
     <!-- show teams  -->
-    <section class="container py-5">
+    <section id="team-section" class="container py-5">
       <div id="display-team" class="row row-cols-1 row-cols-md-3 g-4"></div>
     </section>
 
