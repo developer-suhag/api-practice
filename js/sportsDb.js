@@ -11,7 +11,7 @@ document.getElementById('search-btn').addEventListener('click', () => {
   const displayDetails = document.getElementById('show-deatils');
   if (searchText != '') {
     document.getElementById('search-error').style.display = 'none'
-    console.log(searchText);
+    // console.log(searchText);
     searchField.value = '';
     getTeam(searchText)
     // clear display details
@@ -79,3 +79,14 @@ const displayTeamDeatils = team => {
   `;
   displayDetails.appendChild(teamCard)
 };
+
+
+// loading spinner 
+// document.getElementById('loading-spinnner');
+const spinner = document.getElementById('loading-spinnner')
+spinner.style.display = 'block'
+const lodingSipnner = () => {
+  // console.log('hello');
+  spinner.style.display = 'none'
+
+}

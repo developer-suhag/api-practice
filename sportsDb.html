@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body onload="lodingSipnner()">
     <!-- search team name  -->
     <section class="container py-5">
       <h2 class="text-center text-success fs-1">
@@ -29,10 +29,18 @@
           Search
         </button>
       </div>
+
       <p id="search-error" class="text-center fs-1 my-5 text-warning">
         ⚠️ Please type something to search
       </p>
     </section>
+    <div id="loading-spinnner">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
     <!-- show team details  -->
     <section id="show-deatils" class="container"></section>
     <!-- show teams  -->
