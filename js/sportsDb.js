@@ -1,4 +1,5 @@
 document.getElementById('search-error').style.display = 'none'
+const spinner = document.getElementById('loading-spinnner')
 
 document.getElementById('search-btn').addEventListener('click', () => {
   const searchField = document.getElementById('search-field')
@@ -27,10 +28,30 @@ document.getElementById('search-btn').addEventListener('click', () => {
 
 const getTeam = async team => {
   const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${team}`;
+  spinner.classList.remove('d-none')
   const res = await fetch(url)
   const data = await res.json();
+  spinner.classList.add("d-none");
   showTeams(data.teams);
 };
+// const getTeam = team => {
+//   const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${team}`;
+//   spinner.classList.remove('d-none')
+//   fetch(url)
+//     .then(res => res.json())
+//     .then(data => {
+//       // setTimeout(() => {
+//       //   spinner.classList.add("d-none");
+//       //   showTeams(data.teams);
+//       // }, 1500);
+//       spinner.classList.add("d-none");
+//       showTeams(data.teams);
+
+//     })
+//   // const res = await fetch(url)
+//   // const data = await res.json();
+//   // showTeams(data.teams);
+// };
 
 const showTeams = teams => {
   const displayTeam = document.getElementById('display-team');
@@ -83,10 +104,10 @@ const displayTeamDeatils = team => {
 
 // loading spinner 
 // document.getElementById('loading-spinnner');
-const spinner = document.getElementById('loading-spinnner')
-spinner.style.display = 'block'
-const lodingSipnner = () => {
-  // console.log('hello');
-  spinner.style.display = 'none'
+// const spinner = document.getElementById('loading-spinnner')
+// spinner.style.display = 'block'
+// const lodingSipnner = () => {
+//   // console.log('hello');
+//   spinner.style.display = 'none'
 
-}
+// }
